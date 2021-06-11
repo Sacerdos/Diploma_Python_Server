@@ -6,7 +6,7 @@ import tkinter.messagebox as mb
 import tkinter.filedialog as fd
 
 def predict_digit(img):
-    model = load_model(r'../DiplomaPythonServer/my_model.h5')
+    model = load_model(r'C:\Users\ilyad\Diploma Python Server\my_model_binary.h5')
     img_path = img
     img = image.load_img(img_path, target_size=(256, 256))
     img = img.convert('L')

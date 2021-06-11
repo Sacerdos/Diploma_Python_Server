@@ -6,7 +6,7 @@ from keras.models import load_model
 from keras.preprocessing import image
 import datetime
 
-model = load_model(r'my_model.h5')
+model = load_model(r'C:\Users\ilyad\Diploma Python Server\my_model_09062021.h5')
 
 
 def predict_digit(img):
@@ -27,9 +27,8 @@ def handle_request():
     now = datetime.datetime.now()
     imagefile = flask.request.files['image']
     filename = werkzeug.utils.secure_filename(imagefile.filename)
-    for_save = filename + str(now.microsecond)
+    for_save =  str(now.microsecond)+filename
     imagefile.save(for_save)
-
     answer = str(round(predict_digit(for_save) * 100, 1))
     print(answer)
     return answer
